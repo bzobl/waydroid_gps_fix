@@ -30,4 +30,6 @@ sudo python3 gps_read.py /dev/ttyUSB0
 - [kklimianok](https://github.com/kklimianok)
 - [mav-](https://github.com/mav-)
 - [Waydroid Issues](https://github.com/waydroid/waydroid/issues/226)
+- [waydroid_scripts](https://github.com/casualsnek/waydroid_script)
+
 
