@@ -12,7 +12,7 @@
 
 - GPS tunnel:
 
-`python3 gps_read.py [device]`
+`$ python3 gps_read.py [device]`
 
 `device`: The device path.
 # Example:
