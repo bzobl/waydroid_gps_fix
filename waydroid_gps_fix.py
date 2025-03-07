@@ -166,9 +166,11 @@ class ImagePartitionManager:
         Append GPS configuration properties to the build.prop file.ImagePartitionManager
         """
         with open(build_prop_path, "a") as f:
+            usb_host = self.config["usb_host"]
+            usb_baud_rate = self.config["usb_baud_rate"]
             f.write("\nro.factory.hasGPS=true\n")
-            f.write(f"ro.kernel.android.gps={self.config["usb_host"]}\n")
-            f.write(f"ro.kernel.android.gps.speed={self.config["usb_baud_rate"]}\n")
+            f.write(f"ro.kernel.android.gps={usb_host}\n")
+            f.write(f"ro.kernel.android.gps.speed={usb_baud_rate}\n")
             print(f"Updated {build_prop_path}")
 
     def bind_usb_device(self):
@@ -177,7 +179,8 @@ class ImagePartitionManager:
         """
         config_nodes = "/var/lib/waydroid/lxc/waydroid/config_nodes"
         with open(config_nodes, "a") as f:
-            f.write(f"lxc.mount.entry = /dev/{self.config["usb_host"]} dev/{self.config["usb_host"]} none bind,create=file,optional 0 0\n")
+            usb_host = self.config["usb_host"]
+            f.write(f"lxc.mount.entry = /dev/{usb_host} dev/{usb_host} none bind,create=file,optional 0 0\n")
             print(f"Updated {config_nodes}")
         # subprocess.run(["sudo", "chmod", "666", f"/dev/{self.config["usb_target"]}"], check=True)
         # print(f"Set permissions for /dev/{self.config["usb_target"]}")
