@@ -360,7 +360,7 @@ if __name__ == "__main__":
     reference_image = argv[1]
     target_image_vendor = "/var/lib/waydroid/images/vendor.img"
     target_image_system = "/var/lib/waydroid/images/system.img"
-    image_type = "lineage"
+    image_type = "bliss"
     config = {
         "usb_host": "ttyGPSD",
         "usb_baud_rate": 57600,
