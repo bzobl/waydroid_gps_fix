@@ -33,7 +33,7 @@ def write_hex_data(port, baudrate, hex_datas, timeout=1):
 def read_gps_data(port='/dev/ttyUSB0', baudrate=9600, timeout=1, pty_slave=None, pty_link=None):
     while True:
         try:
-            write_hex_data(port, 9600, ublox_configs)
+            #write_hex_data(port, 9600, ublox_configs)
             print("Device found. Reading data...")
             ser = serial.Serial(port, baudrate, timeout=timeout)
             # with serial.Serial(port, baudrate, timeout=timeout) as ser:
@@ -43,8 +43,8 @@ def read_gps_data(port='/dev/ttyUSB0', baudrate=9600, timeout=1, pty_slave=None,
                 line = ser.read()
                 if line:
                     current_time = time.perf_counter()
-                    # print(line.decode('ascii').strip())
-                    # print(line)
+                    print(line.decode('ascii').strip())
+                    #print(line)
                     os.write(pty_slave, line)
                 if time.perf_counter() - current_time > 4:
                     print("Device not sending data. Retrying...")

@@ -363,7 +363,7 @@ if __name__ == "__main__":
     image_type = "bliss"
     config = {
         "usb_host": "ttyGPSD",
-        "usb_baud_rate": 57600,
+        "usb_baud_rate": 115200,
     }
     # source image: "bliss" for x86_64 img, "lineage" for arm64 img
     patcher = GPSImagePatcher(reference_image, target_image_vendor, target_image_system, image_type=image_type, config=config)
